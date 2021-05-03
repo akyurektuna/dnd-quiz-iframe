@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <span id="labelText"></span>
+    </div>
+    <script type="text/javascript">
+        //always subscribe to ready event and implement widget related code
+        //inside callback function , it is the best practice while developing widgets
+        
+        JFCustomWidget.subscribe("ready", function () {
+            var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
+            document.getElementById('labelText').innerHTML = label;
+            var widgetParams = JFCustomWidget.getWidgetSettings();
+            var quizType = JFCustomWidget.getWidgetSetting("quizType");
+            console.log("quiz type: "+ quizType);
+            console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
+
+            //subscribe to form submit event
+            JFCustomWidget.subscribe("submit", function () {
+                var msg = {
+                    //you should valid attribute to data for JotForm
+                    //to be able to use youw widget as required
+                    valid: true,
+                    value: document.getElementById('userInput').value
+                }
+                // send value to JotForm
+                
+                JFCustomWidget.sendSubmit(msg);
+            });
+        });
+
+    </script>
+</body>
+
+<iframe id="quizdnd" src="https://jovial-mcclintock-098ad7.netlify.app" style="border: none" width="700" height="500">
+</iframe>
+
+<script>
+    function resizeIframe(obj) {
+      obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    }
+  </script>
+
+
+
+</html>
