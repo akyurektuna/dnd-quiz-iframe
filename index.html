@@ -20,7 +20,9 @@
             var quizType = JFCustomWidget.getWidgetSetting('quizType');
             console.log("quiz type: "+ quizType);
             //console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
-
+            
+            window.parent.postMessage({ message: "getAppData", value: quizType }, "*");
+            
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
                 var msg = {
