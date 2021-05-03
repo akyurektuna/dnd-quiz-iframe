@@ -17,9 +17,9 @@
             var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
             document.getElementById('labelText').innerHTML = label;
             var widgetParams = JFCustomWidget.getWidgetSettings();
-            var quizType = JFCustomWidget.getWidgetSetting("quizType");
+            var quizType = JFCustomWidget.getWidgetSetting('quizType');
             console.log("quiz type: "+ quizType);
-            console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
+            //console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
 
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
