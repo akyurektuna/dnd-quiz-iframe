@@ -8,6 +8,7 @@
 <script>
     function sendQuizType() {
       window.parent.postMessage('submitted form', '*');
+      window.postMessage('submitted form', '*');
       console.log("sendquiztype metodu ici");
     }
   </script>
