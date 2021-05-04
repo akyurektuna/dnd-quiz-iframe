@@ -22,7 +22,7 @@
             //console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
             
             window.parent.postMessage({ message: "getAppData", value: quizType }, "*");
-            
+            console.log("indexhtml ici buraya geldi mi");
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
                 var msg = {
