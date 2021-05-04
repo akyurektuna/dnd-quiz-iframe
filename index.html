@@ -5,6 +5,12 @@
     <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
 </head>
 
+<script>
+    function sendQuizType() {
+      window.parent.postMessage('submitted form', '*')
+    }
+  </script>
+
 <body>
     <div id="main">
         <span id="labelText"></span>
@@ -21,7 +27,7 @@
             console.log("quiz type: "+ quizType);
             //console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
             sendQuizType();
-            window.parent.postMessage({ message: "message", value: quizType }, "*");
+            console.log(sendQuizType());
             console.log("indexhtml ici buraya geldi mi");
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
@@ -42,26 +48,6 @@
 
 <iframe id="quizdnd" src="https://confident-wilson-dcaf31.netlify.app" style="border: none" width="700" height="500">
     <div id="click"> </div>
-    <script>
-        document.getElementById('click').onclick=function(){
-            parent.postMessage('Information from iframe','*'); //window.postMessage
-        }
-    </script>
-
 </iframe>
-
-<script>
-    function sendQuizType() {
-      window.parent.postMessage('submitted form', '*')
-    }
-  </script>
-
-<script>
-    function resizeIframe(obj) {
-      obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
-    }
-  </script>
-
-
 
 </html>
