@@ -20,7 +20,7 @@
             var quizType = JFCustomWidget.getWidgetSetting('quizType');
             console.log("quiz type: "+ quizType);
             //console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
-            
+            sendQuizType();
             window.parent.postMessage({ message: "message", value: quizType }, "*");
             console.log("indexhtml ici buraya geldi mi");
             //subscribe to form submit event
@@ -50,6 +50,11 @@
 
 </iframe>
 
+<script>
+    function sendQuizType() {
+      window.parent.postMessage('submitted form', '*')
+    }
+  </script>
 
 <script>
     function resizeIframe(obj) {
