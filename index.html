@@ -21,7 +21,7 @@
             console.log("quiz type: "+ quizType);
             //console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
             
-            window.parent.postMessage({ message: "getAppData", value: quizType }, "*");
+            window.parent.postMessage({ message: "message", value: quizType }, "*");
             console.log("indexhtml ici buraya geldi mi");
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
