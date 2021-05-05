@@ -4,6 +4,21 @@
         window.postMessage('message', '*');
         //window.postMessage('message', 'https://confident-wilson-dcaf31.netlify.app');
         console.log("sendquiztype metodu ici");
+        window.onload = function () {
+
+            var iframeWin = document.getElementById("quizdnd").contentWindow,
+                form = document.getElementById("the-form"),
+                myMessage = document.getElementById("my-message");
+            myMessage.select();
+            form.onsubmit = function () {
+
+                iframeWin.postMessage("message","https://elegant-blackwell-70ddb5.netlify.app");
+
+                return false;
+
+            };
+
+        };
     }
   </script>
 <html>
