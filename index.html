@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <script>
     function sendQuizType() {
-        window.postMessage('message', '*');
+        window.contentWindow.postMessage('message', '*');
         //window.postMessage('message', 'https://confident-wilson-dcaf31.netlify.app');
         console.log("sendquiztype metodu ici");
     }
