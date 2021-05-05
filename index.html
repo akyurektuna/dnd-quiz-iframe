@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <script>
     function sendQuizType() {
-        window.postMessage('message', '*');
         //window.postMessage('message', 'https://confident-wilson-dcaf31.netlify.app');
         console.log("sendquiztype metodu ici");
-        window.onload = function () {
-
+        
             var iframeWin = document.getElementById("quizdnd").contentWindow;
             iframeWin.postMessage("message","https://elegant-blackwell-70ddb5.netlify.app");
 
-        };
+       
     }
   </script>
 <html>
