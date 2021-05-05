@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <script>
     function sendQuizType() {
+
+        const iframe = document.querySelector("iframe");
+        iframe.addEventListener("load", () => {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ message: "this should be delivered to an iframe" })
+        );
+      });
         //window.postMessage('message', 'https://confident-wilson-dcaf31.netlify.app');
         console.log("sendquiztype metodu ici");
         
