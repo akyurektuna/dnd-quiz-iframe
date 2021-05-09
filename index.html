@@ -1,47 +1,40 @@
 <!DOCTYPE html>
-<script>
-    function sendQuizType() {
-
-        const iframe = document.querySelector("iframe");
-        iframe.addEventListener("load", () => {
-        iframe.contentWindow.postMessage(
-          JSON.stringify({ message: "this should be delivered to an iframe" })
-        );
-      });
-        window.postMessage('message', 'https://elegant-blackwell-70ddb5.netlify.app'); 
-        
-            var iframeWin = document.getElementById("quizdnd").contentWindow;
-            iframeWin.postMessage("message","https://elegant-blackwell-70ddb5.netlify.app");
-
-       
-    }
-  </script>
 <html>
 
 <head>
     <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
 </head>
 
-
-
 <body>
     <div id="main">
         <span id="labelText"></span>
     </div>
+    <iframe id="quizdnd" src="https://confident-wilson-dcaf31.netlify.app" style="border: none" width="700"
+        height="500">
+    </iframe>
     <script type="text/javascript">
+        var sendMessage = function (msg) {
+            // Make sure you are sending a string, and to stringify JSON
+            var iframeEl = document.getElementById("quizdnd");
+            iframeEl.contentWindow.postMessage(msg, '*');
+        };
+
         //always subscribe to ready event and implement widget related code
         //inside callback function , it is the best practice while developing widgets
-        
+
         JFCustomWidget.subscribe("ready", function () {
             var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
+            var color = JFCustomWidget.getWidgetSetting('color');
+            var firstinputs = JFCustomWidget.getWidgetSetting('firstinputs');
+            var secondinputs = JFCustomWidget.getWidgetSetting('secondinputs');
+            var dataToBeSent = {
+                color,
+                firstinputs,
+                secondinputs
+            };
+
             document.getElementById('labelText').innerHTML = label;
-            var widgetParams = JFCustomWidget.getWidgetSettings();
-            var quizType = JFCustomWidget.getWidgetSetting('quizType');
-            console.log("quiz type: "+ quizType);
-            //console.log("PARAMETRELER******: "+JSON.stringify(widgetParams));
-            sendQuizType();
-            //console.log(sendQuizType());
-            console.log("indexhtml ici buraya geldi mi");
+            sendMessage(dataToBeSent);
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
                 var msg = {
@@ -51,16 +44,12 @@
                     value: document.getElementById('userInput').value
                 }
                 // send value to JotForm
-                
+
                 JFCustomWidget.sendSubmit(msg);
             });
         });
 
     </script>
 </body>
-
-<iframe id="quizdnd" src="https://confident-wilson-dcaf31.netlify.app" style="border: none" width="700" height="500">
-    <div id="click"> </div>
-</iframe>
 
 </html>
