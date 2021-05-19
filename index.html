@@ -54,12 +54,24 @@
                     value: document.getElementById('userInput').value
                 }
                 // send value to JotForm
-
+                console.log("score(iframedeyim): "+evtDatasi);
                 JFCustomWidget.sendSubmit(msg);
             });
         });
 
     </script>
 </body>
+
+<script>
+    window.addEventListener('message', receiveMessage, false);
+    function receiveMessage(evt) {
+        if (evt.origin === 'https://confident-wilson-dcaf31.netlify.app') {
+            //alert("got message: " + evt.data);
+            console.log("evt.data type: "+typeof(evt.data));
+            window.evtDatasi = evt.data;
+
+        }
+    }
+</script>
 
 </html>
