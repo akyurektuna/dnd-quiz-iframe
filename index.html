@@ -66,8 +66,6 @@
     window.addEventListener('message', receiveMessage, false);
     function receiveMessage(evt) {
         if (evt.origin === 'https://confident-wilson-dcaf31.netlify.app') {
-            //alert("got message: " + evt.data);
-            console.log("evt.data type: "+typeof(evt.data));
             console.log("data from react: "+evt.data);
             window.evtDatasi = evt.data;
 
