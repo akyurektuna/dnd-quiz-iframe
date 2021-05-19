@@ -45,6 +45,7 @@
 
             document.getElementById('labelText').innerHTML = label;
             sendMessage(dataToBeSent);
+            console.log("score(iframedeyim): "+evtDatasi);
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
                 var msg = {
@@ -54,7 +55,6 @@
                     value: document.getElementById('userInput').value
                 }
                 // send value to JotForm
-                console.log("score(iframedeyim): "+evtDatasi);
                 JFCustomWidget.sendSubmit(msg);
             });
         });
