@@ -48,12 +48,12 @@
             console.log("score(iframedeyim): "+window.evtDatasi);
             //subscribe to form submit event
             JFCustomWidget.subscribe("submit", function () {
-                var msg = {
-                    //you should valid attribute to data for JotForm
-                    //to be able to use youw widget as required
-                    valid: true,
-                    value: window.evtDatasi
-                }
+                // var msg = {
+                //     //you should valid attribute to data for JotForm
+                //     //to be able to use youw widget as required
+                //     valid: true,
+                //     //value: window.evtDatasi
+                // }
                 // send value to JotForm
                 JFCustomWidget.sendSubmit(window.evtDatasi);
             });
