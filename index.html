@@ -34,6 +34,8 @@
 
         JFCustomWidget.subscribe("ready", function () {
             var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
+            document.getElementById('labelText').innerHTML = label;
+            var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
             var quizType = JFCustomWidget.getWidgetSetting('quizType');
             var firstinputs = JFCustomWidget.getWidgetSetting('liste1');
             var secondinputs = JFCustomWidget.getWidgetSetting('liste2');
@@ -43,7 +45,6 @@
                 secondinputs
             };
 
-            document.getElementById('labelText').innerHTML = label;
             sendMessage(dataToBeSent);
             console.log("score(iframedeyim): "+window.evtDatasi);
             //subscribe to form submit event
